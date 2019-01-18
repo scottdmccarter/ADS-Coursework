@@ -12,21 +12,30 @@ def hash_quadratic(d):
             continue
         # apply the hash function
         i = (6 * k + 3) % 19
+        t = i
+        print(k,i)
         # initialize count that checks whether linear probe has considered each bucket and is now full
         count = 0
+        j = 0
         # while bucket is already filled
-        while table[i] != "-":
+        while table[i] != '-':
+            j += 1
             # move to next bucket
-            i = (i + (count + 1) ^ 2) % 19
+            print([i])
+            i = (t + j ** 2) % 19
+            print([k,i,j,table[i]])
             # increment count
             count += 1
+            print(count)
             # if table is full
             if count == 18:
-                # can return table as nothing further can be added
+            # can return table as nothing further can be added
                 return table
         # table[i] is empty so k can be added here
+        print('added')
         table[i] = k
     # now each part of the input has been considered return the table
+    print('full table')
     return table
 
 
