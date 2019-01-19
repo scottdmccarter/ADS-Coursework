@@ -52,20 +52,27 @@ def hash_double(d):
             continue
         # apply the hash function
         i = (6 * k + 3) % 19
+        t = i
         # initialize count that checks whether linear probe has considered each bucket and is now full
         count = 0
-        s = 11 - (k % 11)
+        j = 0
         # while bucket is already filled
-        while table[i] != "-":
+        s = 11 - (k % 11)
+        while table[i] != '-':
+            j += 1
             # move to next bucket
-            i = (i + (count + 1) * s) % 19
+            i = (t + j*s) % 19
             # increment count
             count += 1
+
             # if table is full
-            if count == 18:
-                # can return table as nothing further can be added
-                return table
-        # table[i] is empty so k can be added here
-        table[i] = k
+            if count >= 18:
+            # can return table as nothing further can be added
+                break
+
+        # Ensure table[i] is empty so k can be added here
+        if table[i] == '-':
+            table[i] = k
+
     # now each part of the input has been considered return the table
     return table
