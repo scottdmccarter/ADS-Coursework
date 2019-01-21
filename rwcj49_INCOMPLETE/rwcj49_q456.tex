@@ -1,60 +1,173 @@
-\documentclass[]{article}
-\usepackage{tikz}
-\usepackage{tikz,fullpage}
-\usetikzlibrary{arrows,%
-	petri,%
-	topaths}%
-\usepackage{tkz-berge}
-\usepackage[position=top]{subfig}
-\usepackage{amsmath}
+\documentclass[12pt]{article}%
 \usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{comment}
+\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=2.2cm, right=2.2cm]%
+{geometry}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{changepage}
 \usepackage{amssymb}
-\usepackage{graphicx}
-\usepackage{textcomp}
-\usepackage{logicproof}
-\usepackage{float}
-\usepackage{enumitem}
-\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}%
+\setcounter{MaxMatrixCols}{30}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
 
-\title{MCS Summative Assignment 2018-19}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\title{Algorithms & Data Structures 2018/19 Coursework}
 \author{rwcj49}
-\date{Time Taken: approx. 18 hrs}
-
+\date{  }
 \begin{document}
 
 \maketitle
 
+
 \section*{Q4}
 \subsection*{(a)}
-ANS
+$2x^4$ is $\mathcal{O}(x^3 + 3x +2) \xrightarrow{}$ \textit{False} \\
+\bigskip
+\begin{quote}
+PROOF:\\
+
+\skip
+Simplify $\mathcal{O}(x^3 + 3x +2)$ to  $\mathcal{O}(x^3)$, ignoring low order terms\\
+
+For $x > 0$,\hspace{10px} $x^4 \geq  x^3$
+\begin{quote}
+There exists no $k>0$ \& $c >0 $ such that $x^4 \leq c \cdot x^3$, when $x \geq k$ \\
+Therefore the statement is false.
+
+\end{quote}
+\end{quote}
+
+
+
+
 \subsection*{(b)}
-ANS
+$4x^3 +2x^2 \cdot logx + 1$ is $\mathcal{O}(x^3) \xrightarrow{}$ \textit{True} \\
+\bigskip
+\begin{quote}
+PROOF:
+\begin{quote}
+Can rewrite as:
+    $$f_1(x) + f_2(x) + f_3(x)$$
+    Where:\\
+    $f_1(x) = 4x^3$ is $\mathcal{O}(x^3)$, taking $c = 4$ and any $k > 0$\\
+    $f_2(x) = 2x^2 \cdot \log x$ is $\mathcal{O}(x^2\cdot \log x)$, taking $c = 2$ and any $k > 0$\\
+    $f_3(x) = 1$ is $\mathcal{O}(1)$, taking $c = 1$ and any $k$\\
+    Therefore, by sum rule, $4x^3 +2x^2 \cdot logx + 1$ is $\mathcal{O}(x^3)$ and so the statement is true\\
+\end{quote}
+\end{quote}
 \subsection*{(c)}
-ANS
+$3x^2 +7x + 1$ is $\omega(x\cdot logx) \xrightarrow{}$ \textit{True} \\
+\bigskip
+\begin{quote}
+PROOF:\\
+$$3x^2 +7x + 1 = \omega(x\cdot logx) \implies x\cdot logx = o(3x^2 +7x + 1)$$
+\begin{center}
+    $\lim_{x \to \infty} \dfrac{x\cdot \log x}{3x^2 + 7x +1} \hspace{5px}  =\hspace{5px}\lim_{x \to \infty} \dfrac{\dfrac{\log x}{x}}{3 + \dfrac{7}{x} + \dfrac{1}{x^2}}\hspace{5px} = \dfrac{0}{3} \hspace{5px}=\hspace{5px} 0$
+\end{center}
+Therefore, $x\cdot logx = o(3x^2 +7x + 1)$ is true, and so too is the original statement of $3x^2 +7x + 1 = \omega(x\cdot logx) $
+\end{quote}
 \subsection*{(d)}
-ANS
+$x^2 +4x$ is $\Omega(x \cdot logx) \xrightarrow{}$ \textit{True} \\
+\bigskip
+\begin{quote}
+PROOF:\\
+
+
+\skip
+For $k=2,c=1$:\\
+\begin{quote}
+$x^2 + 4x \geq c \cdot x \cdot \log x$\\
+$= 2^2 + 4(2) \geq 1 \cdot 2 \cdot 1$\\
+$12 \geq 2$\\
+This is true and therefore so too is the original statement.
+\end{quote}
+\end{quote}
 \subsection*{(e)}
-ANS
+$f(x) + g(x)$ is $\Theta (f(x)\cdot g(x)) \xrightarrow{}$ \textit{True} \\
+\bigskip
+\begin{quote}
+PROOF:\\
+    $deg(f(x)+g(x)) \leq deg(f(x)g(x))$\\
+
+
+\end{quote}
+
 
 \section*{Q5}
 \subsection*{(a)}
-ANS
-\subsection*{(b)}
-ANS
-\subsection*{(c)}
-ANS
-\subsection*{(d)}
-ANS
-\subsection*{(e)}
-ANS
+$T(n) = 9T(n/3) + n^2$\\
+\bigskip
+$\implies T(n) = \Theta(n^2 \log n)$ (Case 2)
 
+\subsection*{(b)}
+$T(n) = 4T(n/2) + 100n$ \\
+\bigskip
+$\implies T(n) = \Theta(n^2)$ (Case 1)
+
+
+\subsection*{(c)}
+$T(n) = 2^nT(n/2) + n^3$\\
+\textbf{Cannot use Master Theorem:} \\
+\noindent
+To use Master Theorem, recurrence must be of the form:
+$$T(n) = aT(n/a) + f(n)$$ Where $a \geq 1$ and $b \geq 1$\\
+Here $a$ is $2^n$, not a constant .
+\subsection*{(d)}
+$T(n) = 3T(n/3) + c\cdot n$\\
+\bigskip
+$\implies T(n) = \Theta(n^2 \log n)$ (Case 2)
+
+\subsection*{(e)}
+$T(n) = 0.99T(n/7) + 1/(n^2)$ \\
+\textbf{Cannot use Master Theorem:} \\
+\noindent
+To use Master Theorem, recurrence must be of the form:
+$$T(n) = aT(n/a) + f(n)$$ Where $a \geq 1$ and $b \geq 1$\\
+$a < 1$ therefore not compatible with Master Theorem.
 \section*{Q6}
 \subsection*{(a)}
-ANS
+See rwcj49\_q6a.py
 \subsection*{(b)}
-ANS
+MergeSort has worst complexity of $\mathcal{O} (n \cdot \log n)$\\
+SelectionSort has worst complexity $\mathcal{O}(n^2)$ \\
+
+\noindent
+While Selectionsort has worse complexity than MergeSort for large arrays, in this algorithm, SelectionSort only ever acts on small arrays (length $\leq$ 4), and so the overall worst case input will be that which gives highest complexity for MergeSort.\\
+This worst case MergeSort is that which involves most comparisons\\
+e.g.
+\begin{quote}
+    $A = [8,16,4,12,6,14,2,10,7,15,3,11,5,13,1,9]$
+\end{quote}
+    This array will require swaps at every possible stage, giving the highest possible complexity for an array of this length.
 \subsection*{(c)}
-ANS
+See rwcj49\_q6c.py
 
 
 \end{document}
