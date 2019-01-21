@@ -1,7 +1,8 @@
 #q2test.py
 """test function for question 2 of the ADS assignment, 2018-19"""
-
+import time
 def q2test():
+    start = time.time()
     """tests for the function count_ephemeral"""
     correct = True
     result = count_ephemeral(1, 10, 2)
@@ -17,5 +18,6 @@ def q2test():
         correct = False
         print("test failed for n1=123456, n2=654321, k=4; correct result is 376, result obtained was ", result)
     if correct:
+        end = time.time()
+        print(end - start)
         print("all tests passed")
-        
