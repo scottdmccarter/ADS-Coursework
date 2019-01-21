@@ -49,7 +49,6 @@
 \section*{Q4}
 \subsection*{(a)}
 $2x^4$ is $\mathcal{O}(x^3 + 3x +2) \xrightarrow{}$ \textit{False} \\
-\bigskip
 \begin{quote}
 PROOF:\\
 
@@ -69,7 +68,6 @@ Therefore the statement is false.
 
 \subsection*{(b)}
 $4x^3 +2x^2 \cdot logx + 1$ is $\mathcal{O}(x^3) \xrightarrow{}$ \textit{True} \\
-\bigskip
 \begin{quote}
 PROOF:
 \begin{quote}
@@ -84,18 +82,16 @@ Can rewrite as:
 \end{quote}
 \subsection*{(c)}
 $3x^2 +7x + 1$ is $\omega(x\cdot logx) \xrightarrow{}$ \textit{True} \\
-\bigskip
 \begin{quote}
 PROOF:\\
 $$3x^2 +7x + 1 = \omega(x\cdot logx) \implies x\cdot logx = o(3x^2 +7x + 1)$$
 \begin{center}
-    $\lim_{x \to \infty} \dfrac{x\cdot \log x}{3x^2 + 7x +1} \hspace{5px}  =\hspace{5px}\lim_{x \to \infty} \dfrac{\dfrac{\log x}{x}}{3 + \dfrac{7}{x} + \dfrac{1}{x^2}}\hspace{5px} = \dfrac{0}{3} \hspace{5px}=\hspace{5px} 0$
+    $\lim_{x \to \infty} \dfrac{x\cdot \log x}{3x^2 + 7x +1} \hspace{5px}  =\hspace{5px}\lim_{x \to \infty} \dfrac{\frac{\log x}{x}}{3 + \frac{7}{x} + \frac{1}{x^2}}\hspace{5px} = \dfrac{0}{3} \hspace{5px}=\hspace{5px} 0$
 \end{center}
 Therefore, $x\cdot logx = o(3x^2 +7x + 1)$ is true, and so too is the original statement of $3x^2 +7x + 1 = \omega(x\cdot logx) $
 \end{quote}
 \subsection*{(d)}
 $x^2 +4x$ is $\Omega(x \cdot logx) \xrightarrow{}$ \textit{True} \\
-\bigskip
 \begin{quote}
 PROOF:\\
 
@@ -111,14 +107,17 @@ This is true and therefore so too is the original statement.
 \end{quote}
 \subsection*{(e)}
 $f(x) + g(x)$ is $\Theta (f(x)\cdot g(x)) \xrightarrow{}$ \textit{True} \\
-\bigskip
 \begin{quote}
 PROOF:\\
-    $deg(f(x)+g(x)) \leq deg(f(x)g(x))$\\
-
-
+\begin{quote}
+    $deg(f(x)+g(x)) \leq deg(f(x)\cdot g(x))$\\
+    $C_1\cdot f(x)\cdot g(x)) \leq  f(x) + g(x) \leq C_2\cdot f(x)\cdot g(x))$\\
+    $f(x) + g(x) \leq C_2\cdot f(x)\cdot g(x) \implies max(deg(f),deg(g)) \leq C_1\cdot(deg(f)+deg(g))$\\
+    $C_1 < 1 \implies deg(f) \geq C_1\cdot(deg(f)+deg(g))$ or $deg(g) \geq C_1\cdot(deg(f)+deg(g))$
+    This is true and so the original statement is also true.
 \end{quote}
-
+\end{quote}
+\newpage
 
 \section*{Q5}
 \subsection*{(a)}
@@ -151,6 +150,8 @@ $T(n) = 0.99T(n/7) + 1/(n^2)$ \\
 To use Master Theorem, recurrence must be of the form:
 $$T(n) = aT(n/a) + f(n)$$ Where $a \geq 1$ and $b \geq 1$\\
 $a < 1$ therefore not compatible with Master Theorem.
+\newpage
+
 \section*{Q6}
 \subsection*{(a)}
 See rwcj49\_q6a.py

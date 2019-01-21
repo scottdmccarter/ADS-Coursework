@@ -56,20 +56,27 @@ class Queue:
         else:
             self.rear.after = Node(data, self.rear)
             self.rear = self.rear.after
-    
+
 #####################################################
-            
+
 
 def testq3():
-    assert good_expression("1+2+3+4") 
-    assert not good_expression("(1+2+3+4)") 
-    assert good_expression("(1+2)*3+4") 
-    assert not good_expression("((1+2))*3+4") 
-    assert good_expression("1+2*3+4") 
-    assert not good_expression("1+(2*3)+4") 
-    assert good_expression("1*2+3+4") 
-    assert not good_expression("1*2+(3+4)") 
+    assert good_expression("1+2+3+4")
+    assert not good_expression("(1+2+3+4)")
+    assert good_expression("(1+2)*3+4")
+    assert not good_expression("((1+2))*3+4")
+    assert good_expression("1+2*3+4")
+    assert not good_expression("1+(2*3)+4")
+    assert good_expression("1*2+3+4")
+    assert not good_expression("1*2+(3+4)")
     print ("all tests passed")
-    
+
 #####################################################
 
+def good_expression(a):
+    numbers = "0123456789"
+    operators = "+-*/"
+    s = Stack()
+    for i in range(0,len(str(a))):
+            s.push(i)
+    return True
